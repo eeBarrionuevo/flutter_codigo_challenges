@@ -5,46 +5,136 @@ class Challenge4Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          backgroundMain(),
-          titleWidget(),
-        ],
-      ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: Color.fromRGBO(55, 57, 85, 1.0),
-          primaryColor: Colors.pinkAccent,
-          textTheme: ThemeData.dark().textTheme.copyWith(
-            caption: TextStyle(color: Color.fromRGBO(115, 117, 150, 1.0))
-          ),
-        ),
-        child: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.calendar_today,
-                size: 30.0,
+        body: Stack(
+          children: [
+            backgroundMain(),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  titleWidget(),
+                  tableIconWidget(),
+                ],
               ),
-              label: "CALENDAR",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bubble_chart,
-                size: 30.0,
-              ),
-              label: "SHARE",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.supervised_user_circle,
-                size: 30.0,
-              ),
-              label: "SHARE",
             ),
           ],
         ),
-      )
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: Color.fromRGBO(55, 57, 85, 1.0),
+            primaryColor: Colors.pinkAccent,
+            textTheme: ThemeData.dark().textTheme.copyWith(
+                caption: TextStyle(color: Color.fromRGBO(115, 117, 150, 1.0))),
+          ),
+          child: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.calendar_today,
+                  size: 30.0,
+                ),
+                label: "CALENDAR",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.bubble_chart,
+                  size: 30.0,
+                ),
+                label: "SHARE",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.supervised_user_circle,
+                  size: 30.0,
+                ),
+                label: "PEOPLE",
+              ),
+            ],
+          ),
+        ));
+  }
+
+  Table tableIconWidget() {
+    return Table(
+      children: [
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+        TableRow(
+          children: [
+            cardIconWidget(),
+            cardIconWidget(),
+          ],
+        ),
+
+      ],
+    );
+  }
+
+  Container cardIconWidget() {
+    return Container(
+      margin: EdgeInsets.all(15.0),
+      height: 180.0,
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.75),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            child: Icon(
+              Icons.supervised_user_circle,
+              size: 32.0,
+              color: Colors.white,
+            ),
+            backgroundColor: Colors.pinkAccent,
+            radius: 35.0,
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          Text(
+            "Contact",
+            style: TextStyle(
+              color: Colors.pinkAccent,
+              fontSize: 20.0,
+            ),
+          )
+        ],
+      ),
     );
   }
 
